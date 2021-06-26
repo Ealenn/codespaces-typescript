@@ -37,12 +37,13 @@ WORKDIR /root
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime \
   && echo $TZ > /etc/timezone
 
-# APT
 RUN apt update && apt upgrade -y
+RUN apt install sudo screen tzdata locales lsb-release -y
+
+# APT
+RUN apt install ca-certificates gnupg -y
 
 # Essential
-RUN apt install sudo screen tzdata locales lsb-release -y
-# RUN apt install iputils-ping iproute2 dnsutils net-tools -y
 RUN apt install build-essential git curl wget vim -y
 
 # Locale
@@ -50,8 +51,24 @@ RUN locale-gen $LOCAL && update-locale LANG=$LOCAL
 
 # Bash | Starship
 RUN apt install zsh -y
+RUN sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 RUN curl -fsSL https://starship.rs/install.sh | bash -s -- -y
 RUN rm /bin/sh && ln -s /bin/zsh /bin/sh
+
+# ------------------------------
+# Docker
+# ------------------------------
+WORKDIR /usr/local/docker
+# Install Docker CE CLI
+RUN curl -fsSL https://download.docker.com/linux/$(lsb_release -is | tr '[:upper:]' '[:lower:]')/gpg | apt-key add - 2>/dev/null \
+    && echo "deb [arch=amd64] https://download.docker.com/linux/$(lsb_release -is | tr '[:upper:]' '[:lower:]') $(lsb_release -cs) stable" | tee /etc/apt/sources.list.d/docker.list \
+    && apt update \
+    && apt install -y docker-ce-cli
+
+# Install Docker Compose
+RUN LATEST_COMPOSE_VERSION=$(curl -sSL "https://api.github.com/repos/docker/compose/releases/latest" | grep -o -P '(?<="tag_name": ").+(?=")') \
+    && curl -sSL "https://github.com/docker/compose/releases/download/${LATEST_COMPOSE_VERSION}/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose \
+    && chmod +x /usr/local/bin/docker-compose
 
 # ------------------------------
 # NodeJS - NVM
@@ -79,7 +96,15 @@ RUN useradd -u ${PUID} -U -d ${HOME} -s /bin/zsh ${USER} \
   && echo root:root | chpasswd \
   && mkdir -p ${HOME} $HOME/.vim/backup -p $HOME/.vim/swap -p $HOME/.vim/undo
 
+# ------------------------------
+# User Permissions
+# ------------------------------
+RUN groupadd docker
+RUN usermod -a -G docker $USER
+
+# ------------------------------
 # User Configuration
+# ------------------------------
 COPY home/ ${HOME}/
 RUN chown -R ${PUID}:${PGID} $HOME
 
