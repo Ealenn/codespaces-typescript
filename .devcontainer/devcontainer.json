@@ -1,0 +1,53 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the README at:
+// https://github.com/microsoft/vscode-dev-containers/tree/v0.183.0/containers/docker-existing-dockerfile
+{
+  "name": "TypeScript",
+
+  "build": {
+    "context": ".",
+    "dockerfile": "./Dockerfile",
+    "args": {
+      "PUID": "1000",
+      "PGID": "1000",
+      "TZ": "Europe/Paris",
+      "LOCAL": "en_GB.UTF-8"
+    }
+  },
+
+  // Set *default* container specific settings.json values on container create.
+  "settings": {},
+
+  // Add the IDs of extensions you want installed when the container is created.
+  "extensions": [
+    // TypeScript
+    "dbaeumer.vscode-eslint",
+    // Files
+    "bungcip.better-toml",
+    "yzhang.markdown-all-in-one",
+    "redhat.vscode-yaml",
+    // Global
+    "editorconfig.editorconfig",
+    // Front
+    "naumovs.color-highlight",
+    // Theme
+    "vscode-icons-team.vscode-icons",
+    // Docker
+    "ms-azuretools.vscode-docker",
+    "ms-kubernetes-tools.vscode-kubernetes-tools"
+  ],
+
+  // Use 'forwardPorts' to make a list of ports inside the container available locally.
+  // "forwardPorts": [],
+
+  // Uncomment the next line to run commands after the container is created - for example installing curl.
+  // "postCreateCommand": "apt-get update && apt-get install -y curl",
+
+  // Uncomment when using a ptrace-based debugger like C++, Go, and Rust
+  // "runArgs": [ "--cap-add=SYS_PTRACE", "--security-opt", "seccomp=unconfined" ],
+  
+  // Uncomment to use the Docker CLI from inside the container. See https://aka.ms/vscode-remote/samples/docker-from-docker.
+  "mounts": [
+    "source=/home/ealen/.ssh,target=/home/user/.ssh,type=bind,readonly",
+    "source=/var/run/docker.sock,target=/var/run/docker.sock,type=bind"
+  ]
+}
