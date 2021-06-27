@@ -23,7 +23,9 @@
   "settings": {
     "eslint.alwaysShowStatus": true,
     "workbench.iconTheme": "vscode-icons",
-    "editor.fontFamily": "Consolas, 'Courier New', monospace, hack"
+    "editor.fontFamily": "Consolas, 'Courier New', monospace, 'Hack Nerd Font Mono'",
+    "terminal.integrated.fontFamily": "Consolas, 'Hack Nerd Font Mono'",
+    "terminal.integrated.fontSize": 14
   },
   "forwardPorts": [ 8080 ],
   "postCreateCommand": "npm ci",

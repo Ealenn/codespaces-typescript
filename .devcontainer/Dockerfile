@@ -85,6 +85,15 @@ ENV NODE_PATH $NVM_DIR/v$NODE_VERSION/lib/node_modules
 ENV PATH $NVM_DIR/versions/node/v$NODE_VERSION/bin:$PATH
 
 # ------------------------------
+# LSD
+# ------------------------------
+WORKDIR /usr/local/lsd
+ENV LSD_VERSION 0.20.1
+ADD https://github.com/Peltoche/lsd/releases/download/${LSD_VERSION}/lsd_${LSD_VERSION}_amd64.deb /usr/local/lsd/lsd.deb
+RUN dpkg -i ./lsd.deb
+RUN rm ./lsd.deb
+
+# ------------------------------
 # User
 # ------------------------------
 WORKDIR ${HOME}
