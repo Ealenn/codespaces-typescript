@@ -1,0 +1,35 @@
+{
+  "name": "TypeScript",
+  "image": "ealen/codespaces-typescript",
+  "extensions": [
+    // TypeScript
+    "dbaeumer.vscode-eslint",
+    "oouo-diogo-perdigao.docthis",
+    // Files
+    "bungcip.better-toml",
+    "yzhang.markdown-all-in-one",
+    "redhat.vscode-yaml",
+    // Global
+    "editorconfig.editorconfig",
+    "gruntfuggly.todo-tree",
+    // Front
+    "naumovs.color-highlight",
+    // Theme
+    "vscode-icons-team.vscode-icons",
+    // Docker
+    "ms-azuretools.vscode-docker"
+  ],
+
+  "settings": {
+    "eslint.alwaysShowStatus": true,
+    "workbench.iconTheme": "vscode-icons",
+    "editor.fontFamily": "Consolas, 'Courier New', monospace, hack"
+  },
+  "forwardPorts": [ 8080 ],
+  "postCreateCommand": "npm ci",
+
+  "mounts": [
+    "source=/home/ealen/.ssh,target=/home/user/.ssh,type=bind,readonly",
+    "source=/var/run/docker.sock,target=/var/run/docker.sock,type=bind"
+  ]
+}
