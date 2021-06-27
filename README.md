@@ -62,8 +62,8 @@ In your project, create `.devcontainer/devcontainer.json` [[?]](https://aka.ms/d
     "eslint.alwaysShowStatus": true,
     "workbench.iconTheme": "vscode-icons",
     "editor.fontFamily": "Consolas, 'Courier New', monospace, hack, 'Hack Nerd Font Mono'",
-    "terminal.integrated.fontFamily": "'Inconsolata Nerd Font Mono', 'Hack Nerd Font Mono'",
-    "terminal.integrated.fontSize": 13
+    "terminal.integrated.fontFamily": "Consolas, 'Hack Nerd Font Mono'",
+    "terminal.integrated.fontSize": 14
   },
 
   // Use 'forwardPorts' to make a list of ports inside the container available locally.

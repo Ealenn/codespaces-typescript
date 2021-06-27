@@ -15,10 +15,8 @@ plugins=(git docker docker-compose node nvm npm)
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # LSD
-alias ls='lsd'
-alias ll='ls -l'
-alias la='ls -a'
-alias lla='ls -la'
+alias ls='lsd -A'
+alias ll='ls -lA'
 alias lt='ls --tree'
 
 # Starship
