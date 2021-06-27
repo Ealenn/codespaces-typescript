@@ -4,6 +4,8 @@
 ![Docker Image Version (latest semver)](https://img.shields.io/docker/v/ealen/codespaces-typescript?sort=semver&style=for-the-badge)
 ![Docker Pulls](https://img.shields.io/docker/pulls/ealen/codespaces-typescript?style=for-the-badge)
 
+![](./vscode.png)
+
 The Visual [Studio Code Remote Containers extension](https://code.visualstudio.com/docs/remote/containers) lets you use a Docker container as a full-featured development environment. It allows you to open any folder inside (or mounted into) a container and take advantage of Visual Studio Code's full feature set. 
 
 A `devcontainer.json` file in your project tells VS Code how to access a development container with a well-defined tool and runtime stack. This container can be used to run an application or to separate tools, libraries, or runtimes needed for working with a codebase.
@@ -59,7 +61,9 @@ In your project, create `.devcontainer/devcontainer.json` [[?]](https://aka.ms/d
   "settings": {
     "eslint.alwaysShowStatus": true,
     "workbench.iconTheme": "vscode-icons",
-    "editor.fontFamily": "Consolas, 'Courier New', monospace, hack"
+    "editor.fontFamily": "Consolas, 'Courier New', monospace, hack, 'Hack Nerd Font Mono'",
+    "terminal.integrated.fontFamily": "'Inconsolata Nerd Font Mono', 'Hack Nerd Font Mono'",
+    "terminal.integrated.fontSize": 13
   },
 
   // Use 'forwardPorts' to make a list of ports inside the container available locally.
@@ -77,10 +81,13 @@ In your project, create `.devcontainer/devcontainer.json` [[?]](https://aka.ms/d
 
 An example is available [here](./example).
 
+> /!\ You must install Nerd Font "[Hack Nerd Font Mono](https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/Hack/Regular/complete/Hack%20Regular%20Nerd%20Font%20Complete%20Mono.ttf)" /!\
+
 ## Environment 
 
 - [ZSH](https://www.zsh.org/) & [Oh-My-ZSH](https://github.com/ohmyzsh/ohmyzsh) Zsh is a shell designed for interactive use, although it is also a powerful scripting language.
 - [Starship](https://starship.rs/) The minimal, blazing-fast, and infinitely customizable prompt for any shell!
+- [LSD](https://github.com/Peltoche/lsd) Colorizes the ls output with color and icons.
 - [NVM](https://github.com/nvm-sh/nvm) with [Node LTS](https://nodejs.dev/) installed by default. NVM is a version manager for NodeJS.
 - [Vim](https://www.vim.org/) Vim is a highly configurable text editor built to make creating and changing any kind of text very efficient.
 - [Docker](https://www.docker.com/) & [Docker-Compose](https://docs.docker.com/compose/) Lets you run Docker within Docker.
