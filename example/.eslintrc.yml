@@ -1,0 +1,37 @@
+env:
+  es2021: true
+  node: true
+extends:
+  - 'eslint:recommended'
+  - 'plugin:@typescript-eslint/recommended'
+  - 'plugin:@typescript-eslint/eslint-recommended'
+parser: '@typescript-eslint/parser'
+parserOptions:
+  ecmaVersion: 12
+  sourceType: module
+plugins:
+  - '@typescript-eslint'
+rules:
+  quotes: ['error', 'single']
+  no-spaced-func: error
+  no-unused-expressions: error
+  dot-notation: error
+  comma-spacing: ['error', { 'before': false, 'after': true }]
+  brace-style: ['error', 'allman', { 'allowSingleLine': true }]
+  space-before-function-paren: ['error', {
+    anonymous: never,
+    named: never,
+    asyncArrow: never
+  }]
+  func-call-spacing: ['error', 'never']
+  indent: ['error', 2]
+  keyword-spacing: ['error', { 'before': true }]
+  array-bracket-spacing: ['error', 'never']
+  lines-between-class-members: ['error', 'always', 'exceptAfterSingleLine': true]
+  no-throw-literal: 'error'
+  no-trailing-spaces: 'error'
+  no-unused-vars: off
+  '@typescript-eslint/no-unused-vars': ['error']
+  '@typescript-eslint/no-explicit-any': off
+  '@typescript-eslint/explicit-module-boundary-types': off
+  eol-last: ['error', 'always']

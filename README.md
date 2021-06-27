@@ -15,12 +15,67 @@ A `devcontainer.json` file in your project tells VS Code how to access a develop
 - [TypeScript DevContainer Workspace](#typescript-devcontainer-workspace)
   - [Table of contents](#table-of-contents)
 - [Dev-Container](#dev-container)
+- [How to use](#how-to-use)
   - [Environment](#environment)
   - [Essential](#essential)
   - [Others](#others)
-- [How to use](#how-to-use)
+- [VSCode Extensions](#vscode-extensions)
+  - [TypeScript](#typescript)
+  - [Files](#files)
+  - [Global](#global)
+  - [Front](#front)
+  - [Theme](#theme)
+  - [Docker](#docker)
 
 # Dev-Container
+
+# How to use
+
+In your project, create `.devcontainer/devcontainer.json` [[?]](https://aka.ms/devcontainer.json) : 
+
+``` js
+{
+  "name": "TypeScript",
+  "image": "ealen/codespaces-typescript",
+
+  "extensions": [
+    // TypeScript
+    "dbaeumer.vscode-eslint",
+    "oouo-diogo-perdigao.docthis",
+    // Files
+    "bungcip.better-toml",
+    "yzhang.markdown-all-in-one",
+    // Global
+    "editorconfig.editorconfig",
+    "gruntfuggly.todo-tree",
+    // Front
+    "naumovs.color-highlight",
+    // Theme
+    "vscode-icons-team.vscode-icons",
+    // Docker
+    "ms-azuretools.vscode-docker"
+  ],
+
+  "settings": {
+    "eslint.alwaysShowStatus": true,
+    "workbench.iconTheme": "vscode-icons",
+    "editor.fontFamily": "Consolas, 'Courier New', monospace, hack"
+  },
+
+  // Use 'forwardPorts' to make a list of ports inside the container available locally.
+  // "forwardPorts": [],
+
+  // Uncomment the next line to run commands after the container is created - for example installing curl.
+  // "postCreateCommand": "npm ci",
+
+  "mounts": [
+    "source=/home/ealen/.ssh,target=/home/user/.ssh,type=bind,readonly",
+    "source=/var/run/docker.sock,target=/var/run/docker.sock,type=bind" 
+  ]
+}
+```
+
+An example is available [here](./example).
 
 ## Environment 
 
@@ -41,41 +96,25 @@ A `devcontainer.json` file in your project tells VS Code how to access a develop
 - [ca-certificates](https://packages.debian.org/en/sid/ca-certificates) Contains the certificate authorities shipped with Mozilla's browser to allow SSL-based applications to check for the authenticity of SSL connections.
 - [gnupg](https://packages.debian.org/en/sid/gnupg) GnuPG is GNU's tool for secure communication and data storage.
 
-# How to use
+# VSCode Extensions
 
-In your project, create `.devcontainer/devcontainer.json` [[?]](https://aka.ms/devcontainer.json) : 
+## TypeScript
+- [dbaeumer.vscode-eslint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) Integrates ESLint JavaScript into VS Code.
+- [oouo-diogo-perdigao.docthis](https://marketplace.visualstudio.com/items?itemName=oouo-diogo-perdigao.docthis) Automatically generates detailed JSDoc comments in TypeScript and JavaScript files.
 
-``` js
-{
-  "name": "TypeScript",
-  "image": "ealen/codespaces-typescript",
+## Files
+- [bungcip.better-toml](https://marketplace.visualstudio.com/items?itemName=bungcip.better-toml) Better TOML Language support
+- [yzhang.markdown-all-in-one](https://marketplace.visualstudio.com/items?itemName=yzhang.markdown-all-in-one) All you need to write Markdown 
 
-  "extensions": [
-    // TypeScript
-    "dbaeumer.vscode-eslint",
-    // Files
-    "bungcip.better-toml",
-    "yzhang.markdown-all-in-one",
-    // Global
-    "editorconfig.editorconfig",
-    // Front
-    "naumovs.color-highlight",
-    // Theme
-    "vscode-icons-team.vscode-icons",
-    // Docker
-    "ms-azuretools.vscode-docker",
-    "ms-kubernetes-tools.vscode-kubernetes-tools"
-  ],
+## Global
+- [editorconfig.editorconfig](https://marketplace.visualstudio.com/items?itemName=editorconfig.editorconfig) EditorConfig Support for Visual Studio Code
+- [gruntfuggly.todo-tree](https://marketplace.visualstudio.com/items?itemName=gruntfuggly.todo-tree) Show TODO, FIXME, etc. comment tags in a tree view
 
-  // Use 'forwardPorts' to make a list of ports inside the container available locally.
-  // "forwardPorts": [],
+## Front
+- [naumovs.color-highlight](https://marketplace.visualstudio.com/items?itemName=naumovs.color-highlight) Highlight web colors in your editor
 
-  // Uncomment the next line to run commands after the container is created - for example installing curl.
-  // "postCreateCommand": "npm ci",
+## Theme
+- [vscode-icons-team.vscode-icons](https://marketplace.visualstudio.com/items?itemName=vscode-icons-team.vscode-icons) Icons for Visual Studio Code
 
-  "mounts": [
-    "source=/home/ealen/.ssh,target=/home/user/.ssh,type=bind,readonly",
-    "source=/var/run/docker.sock,target=/var/run/docker.sock,type=bind" 
-  ]
-}
-```
+## Docker
+- [ms-azuretools.vscode-docker](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker) Makes it easy to create, manage, and debug containerized applications.
