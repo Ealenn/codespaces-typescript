@@ -116,6 +116,7 @@ RUN usermod -a -G docker $USER
 # ------------------------------
 COPY home/ ${HOME}/
 RUN chown -R ${PUID}:${PGID} $HOME
+RUN chown -R ${PUID}:${PGID} /usr/local/nvm
 
 # ------------------------------
 # Ready
