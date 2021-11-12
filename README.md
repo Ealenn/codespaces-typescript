@@ -22,6 +22,7 @@ A `devcontainer.json` file in your project tells VS Code how to access a develop
   - [Libs](#libs)
   - [Essential](#essential)
   - [Others](#others)
+- [How to customize](#how-to-customize)
 - [VSCode Extensions](#vscode-extensions)
   - [TypeScript](#typescript)
   - [Files](#files)
@@ -110,6 +111,29 @@ An example is available [here](./example).
 
 - [ca-certificates](https://packages.debian.org/en/sid/ca-certificates) Contains the certificate authorities shipped with Mozilla's browser to allow SSL-based applications to check for the authenticity of SSL connections.
 - [gnupg](https://packages.debian.org/en/sid/gnupg) GnuPG is GNU's tool for secure communication and data storage.
+
+# How to customize
+
+Create `.devcontainer/Dockerfile` and extend this codespace :
+
+```dockerfile
+FROM ealen/codespaces-typescript
+
+# Add your changes
+```
+
+Update your `.devcontainer/decontainer.json` to build your custom image :
+
+```js
+{
+  "name": "TypeScript",
+  "build": {
+    "context": ".",
+    "dockerfile": "./Dockerfile"
+  }
+  ...
+}
+```
 
 # VSCode Extensions
 
