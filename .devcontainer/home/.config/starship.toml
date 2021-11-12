@@ -1,4 +1,6 @@
-format = "🐳 $all"
+format = " $all"
+command_timeout = 3000
+add_newline = true
 
 [username]
 style_root = "magenta bold"
@@ -10,15 +12,16 @@ show_always = true
 format = "[@$hostname](bold green) "
 ssh_only = false
 
-[memory_usage]
-style = "dimmed"
+[git_metrics]
+only_nonzero_diffs = false
 disabled = false
-threshold = -1
-format = "[${ram}]($style) "
+
+[cmd_duration]
+format = '[祥$duration ]($style)'
 
 [status]
 style = "bg:blue"
-symbol = "🔴"
+symbol = ""
 format = '[\[$symbol $common_meaning $signal_name ($int)\]]($style) '
 map_symbol = true
 disabled = false

@@ -56,6 +56,11 @@ RUN curl -fsSL https://starship.rs/install.sh | bash -s -- -y
 RUN rm /bin/sh && ln -s /bin/zsh /bin/sh
 
 # ------------------------------
+# Python
+# ------------------------------
+RUN apt install python3-dev python3-pip python3-setuptools -y
+
+# ------------------------------
 # Docker
 # ------------------------------
 WORKDIR /usr/local/docker
@@ -92,6 +97,11 @@ ENV LSD_VERSION 0.20.1
 ADD https://github.com/Peltoche/lsd/releases/download/${LSD_VERSION}/lsd_${LSD_VERSION}_amd64.deb /usr/local/lsd/lsd.deb
 RUN dpkg -i ./lsd.deb
 RUN rm ./lsd.deb
+
+# ------------------------------
+# TheFuck
+# ------------------------------
+RUN pip3 install thefuck
 
 # ------------------------------
 # User
