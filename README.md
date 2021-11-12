@@ -1,8 +1,8 @@
 # TypeScript DevContainer Workspace
 
 [![GitHub stars](https://img.shields.io/github/stars/Ealenn/codespaces-typescript?style=for-the-badge)](https://github.com/Ealenn/codespaces-typescript/stargazers)
-![Docker Image Version (latest semver)](https://img.shields.io/docker/v/ealen/codespaces-typescript?sort=semver&style=for-the-badge)
-![Docker Pulls](https://img.shields.io/docker/pulls/ealen/codespaces-typescript?style=for-the-badge)
+[![Docker Image Version (latest semver)](https://img.shields.io/docker/v/ealen/codespaces-typescript?color=blue&style=for-the-badge)](https://hub.docker.com/r/ealen/codespaces-typescript/tags)
+[![Docker Pulls](https://img.shields.io/docker/pulls/ealen/codespaces-typescript?style=for-the-badge)](https://hub.docker.com/r/ealen/codespaces-typescript/tags)
 
 ![](./vscode.png)
 
