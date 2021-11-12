@@ -19,6 +19,7 @@ A `devcontainer.json` file in your project tells VS Code how to access a develop
 - [Dev-Container](#dev-container)
 - [How to use](#how-to-use)
   - [Environment](#environment)
+  - [Libs](#libs)
   - [Essential](#essential)
   - [Others](#others)
 - [VSCode Extensions](#vscode-extensions)
@@ -50,8 +51,10 @@ In your project, create `.devcontainer/devcontainer.json` [[?]](https://aka.ms/d
     // Global
     "editorconfig.editorconfig",
     "gruntfuggly.todo-tree",
+    "eamodio.gitlens",
     // Front
     "naumovs.color-highlight",
+    "octref.vetur",
     // Theme
     "vscode-icons-team.vscode-icons",
     // Docker
@@ -88,9 +91,14 @@ An example is available [here](./example).
 - [ZSH](https://www.zsh.org/) & [Oh-My-ZSH](https://github.com/ohmyzsh/ohmyzsh) Zsh is a shell designed for interactive use, although it is also a powerful scripting language.
 - [Starship](https://starship.rs/) The minimal, blazing-fast, and infinitely customizable prompt for any shell!
 - [LSD](https://github.com/Peltoche/lsd) Colorizes the ls output with color and icons.
-- [NVM](https://github.com/nvm-sh/nvm) with [Node LTS](https://nodejs.dev/) installed by default. NVM is a version manager for NodeJS.
 - [Vim](https://www.vim.org/) Vim is a highly configurable text editor built to make creating and changing any kind of text very efficient.
 - [Docker](https://www.docker.com/) & [Docker-Compose](https://docs.docker.com/compose/) Lets you run Docker within Docker.
+- [TheFuck](https://github.com/nvbn/thefuck#installation) The Fuck is a magnificent app, that corrects errors in previous console commands.
+
+## Libs
+
+- [NVM](https://github.com/nvm-sh/nvm) with [Node LTS](https://nodejs.dev/) installed by default. NVM is a version manager for NodeJS.
+- [Python3](https://www.python.org) Python is a programming language that lets you work quickly and integrate systems more effectively.
 
 ## Essential
 
@@ -116,9 +124,11 @@ An example is available [here](./example).
 ## Global
 - [editorconfig.editorconfig](https://marketplace.visualstudio.com/items?itemName=editorconfig.editorconfig) EditorConfig Support for Visual Studio Code
 - [gruntfuggly.todo-tree](https://marketplace.visualstudio.com/items?itemName=gruntfuggly.todo-tree) Show TODO, FIXME, etc. comment tags in a tree view
+- [eamodio.gitlens](https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens) Supercharge the Git capabilities built into Visual Studio Code
 
 ## Front
 - [naumovs.color-highlight](https://marketplace.visualstudio.com/items?itemName=naumovs.color-highlight) Highlight web colors in your editor
+- [octref.vetur](https://marketplace.visualstudio.com/items?itemName=octref.vetur) Vue tooling for VS Code
 
 ## Theme
 - [vscode-icons-team.vscode-icons](https://marketplace.visualstudio.com/items?itemName=vscode-icons-team.vscode-icons) Icons for Visual Studio Code

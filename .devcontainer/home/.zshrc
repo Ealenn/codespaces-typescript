@@ -19,5 +19,8 @@ alias ls='lsd -A'
 alias ll='ls -lA'
 alias lt='ls --tree'
 
+# TheFuck
+eval $(thefuck --alias)
+
 # Starship
 eval "$(starship init zsh)"
