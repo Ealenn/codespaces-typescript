@@ -1,8 +1,8 @@
 # TypeScript DevContainer Workspace
 
 [![GitHub stars](https://img.shields.io/github/stars/Ealenn/codespaces-typescript?style=for-the-badge)](https://github.com/Ealenn/codespaces-typescript/stargazers)
-![Docker Image Version (latest semver)](https://img.shields.io/docker/v/ealen/codespaces-typescript?sort=semver&style=for-the-badge)
-![Docker Pulls](https://img.shields.io/docker/pulls/ealen/codespaces-typescript?style=for-the-badge)
+[![Docker Image Version (latest semver)](https://img.shields.io/docker/v/ealen/codespaces-typescript?color=blue&style=for-the-badge)](https://hub.docker.com/r/ealen/codespaces-typescript/tags)
+[![Docker Pulls](https://img.shields.io/docker/pulls/ealen/codespaces-typescript?style=for-the-badge)](https://hub.docker.com/r/ealen/codespaces-typescript/tags)
 
 ![](./vscode.png)
 
@@ -22,6 +22,7 @@ A `devcontainer.json` file in your project tells VS Code how to access a develop
   - [Libs](#libs)
   - [Essential](#essential)
   - [Others](#others)
+- [How to customize](#how-to-customize)
 - [VSCode Extensions](#vscode-extensions)
   - [TypeScript](#typescript)
   - [Files](#files)
@@ -110,6 +111,29 @@ An example is available [here](./example).
 
 - [ca-certificates](https://packages.debian.org/en/sid/ca-certificates) Contains the certificate authorities shipped with Mozilla's browser to allow SSL-based applications to check for the authenticity of SSL connections.
 - [gnupg](https://packages.debian.org/en/sid/gnupg) GnuPG is GNU's tool for secure communication and data storage.
+
+# How to customize
+
+Create `.devcontainer/Dockerfile` and extend this codespace :
+
+```dockerfile
+FROM ealen/codespaces-typescript
+
+# Add your changes
+```
+
+Update your `.devcontainer/decontainer.json` to build your custom image :
+
+```js
+{
+  "name": "TypeScript",
+  "build": {
+    "context": ".",
+    "dockerfile": "./Dockerfile"
+  }
+  ...
+}
+```
 
 # VSCode Extensions
 
