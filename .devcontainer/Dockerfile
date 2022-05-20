@@ -52,7 +52,7 @@ RUN locale-gen $LOCAL && update-locale LANG=$LOCAL
 # Bash | Starship
 RUN apt install zsh -y
 RUN sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-RUN curl -fsSL https://starship.rs/install.sh | bash -s -- -y
+RUN curl -sS https://starship.rs/install.sh | sh -s - --yes
 RUN rm /bin/sh && ln -s /bin/zsh /bin/sh
 
 # ------------------------------
