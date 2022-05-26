@@ -13,7 +13,7 @@ format = "[@$hostname](bold green) "
 ssh_only = false
 
 [git_metrics]
-only_nonzero_diffs = false
+only_nonzero_diffs = true
 disabled = false
 
 [cmd_duration]

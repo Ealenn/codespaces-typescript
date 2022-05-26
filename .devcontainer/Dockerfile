@@ -1,4 +1,4 @@
-FROM ubuntu:20.04
+FROM ubuntu:22.04
 
 # ------------------------------
 # Labels
@@ -38,13 +38,13 @@ RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime \
   && echo $TZ > /etc/timezone
 
 RUN apt update && apt upgrade -y
-RUN apt install sudo screen tzdata locales lsb-release -y
+RUN apt install sudo screen tzdata locales lsb-release software-properties-common -y
 
 # APT
 RUN apt install ca-certificates gnupg -y
 
 # Essential
-RUN apt install build-essential git curl wget vim -y
+RUN apt install build-essential git curl wget vim jq -y
 
 # Locale
 RUN locale-gen $LOCAL && update-locale LANG=$LOCAL
@@ -64,11 +64,9 @@ RUN apt install python3-dev python3-pip python3-setuptools -y
 # Docker
 # ------------------------------
 WORKDIR /usr/local/docker
-# Install Docker CE CLI
-RUN curl -fsSL https://download.docker.com/linux/$(lsb_release -is | tr '[:upper:]' '[:lower:]')/gpg | apt-key add - 2>/dev/null \
-    && echo "deb [arch=amd64] https://download.docker.com/linux/$(lsb_release -is | tr '[:upper:]' '[:lower:]') $(lsb_release -cs) stable" | tee /etc/apt/sources.list.d/docker.list \
-    && apt update \
-    && apt install -y docker-ce-cli
+
+# Install Docker
+RUN apt install docker.io -y
 
 # Install Docker Compose
 RUN LATEST_COMPOSE_VERSION=$(curl -sSL "https://api.github.com/repos/docker/compose/releases/latest" | grep -o -P '(?<="tag_name": ").+(?=")') \
@@ -88,6 +86,13 @@ RUN source $NVM_DIR/nvm.sh \
 
 ENV NODE_PATH $NVM_DIR/v$NODE_VERSION/lib/node_modules
 ENV PATH $NVM_DIR/versions/node/v$NODE_VERSION/bin:$PATH
+
+# ------------------------------
+# NPM Global Packages
+# ------------------------------
+RUN [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" \
+  && npm install --global gi-gitignore-generator \
+  && npm cache clean --force
 
 # ------------------------------
 # LSD
@@ -118,8 +123,14 @@ RUN useradd -u ${PUID} -U -d ${HOME} -s /bin/zsh ${USER} \
 # ------------------------------
 # User Permissions
 # ------------------------------
-RUN groupadd docker
-RUN usermod -a -G docker $USER
+RUN adduser $USER sudo
+RUN addgroup --system docker \
+  && adduser $USER docker \
+  && newgrp docker
+RUN addgroup wsl \
+  && adduser $USER wsl \
+  && newgrp wsl \
+  && groupmod --gid 1001 wsl
 
 # ------------------------------
 # User Configuration
@@ -127,6 +138,13 @@ RUN usermod -a -G docker $USER
 COPY home/ ${HOME}/
 RUN chown -R ${PUID}:${PGID} $HOME
 RUN chown -R ${PUID}:${PGID} /usr/local/nvm
+
+# ------------------------------
+# Clean
+# ------------------------------
+RUN apt autoremove \
+  && apt autoclean \
+  && apt clean
 
 # ------------------------------
 # Ready
