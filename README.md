@@ -12,17 +12,17 @@ A `devcontainer.json` file in your project tells VS Code how to access a develop
 
 [More information](https://code.visualstudio.com/docs/remote/containers)
 
-## Table of contents
+> Table of contents
 
 - [TypeScript DevContainer Workspace](#typescript-devcontainer-workspace)
-  - [Table of contents](#table-of-contents)
 - [Dev-Container](#dev-container)
-- [How to use](#how-to-use)
-  - [Environment](#environment)
-  - [Libs](#libs)
-  - [Essential](#essential)
-  - [Others](#others)
-- [How to customize](#how-to-customize)
+  - [How to use](#how-to-use)
+    - [Environment](#environment)
+    - [CLI](#cli)
+    - [Libs](#libs)
+    - [Essential](#essential)
+    - [Others](#others)
+  - [How to customize](#how-to-customize)
 - [VSCode Extensions](#vscode-extensions)
   - [TypeScript](#typescript)
   - [Files](#files)
@@ -33,7 +33,7 @@ A `devcontainer.json` file in your project tells VS Code how to access a develop
 
 # Dev-Container
 
-# How to use
+## How to use
 
 In your project, create `.devcontainer/devcontainer.json` [[?]](https://aka.ms/devcontainer.json) : 
 
@@ -87,32 +87,39 @@ An example is available [here](./example).
 
 > /!\ You must install Nerd Font "[Hack Nerd Font Mono](https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/Hack/Regular/complete/Hack%20Regular%20Nerd%20Font%20Complete%20Mono.ttf)" /!\
 
-## Environment 
+### Environment 
+
+Based on [Ubuntu 22.04](https://hub.docker.com/_/ubuntu)
 
 - [ZSH](https://www.zsh.org/) & [Oh-My-ZSH](https://github.com/ohmyzsh/ohmyzsh) Zsh is a shell designed for interactive use, although it is also a powerful scripting language.
 - [Starship](https://starship.rs/) The minimal, blazing-fast, and infinitely customizable prompt for any shell!
 - [LSD](https://github.com/Peltoche/lsd) Colorizes the ls output with color and icons.
+
+### CLI
+
 - [Vim](https://www.vim.org/) Vim is a highly configurable text editor built to make creating and changing any kind of text very efficient.
-- [Docker](https://www.docker.com/) & [Docker-Compose](https://docs.docker.com/compose/) Lets you run Docker within Docker.
 - [TheFuck](https://github.com/nvbn/thefuck#installation) The Fuck is a magnificent app, that corrects errors in previous console commands.
+- [JQ](https://github.com/stedolan/jq) jq is a lightweight and flexible command-line JSON processor.
+- [gi](https://github.com/Ealenn/gi-gitignore-generator) CLI to generate .gitignore or .gitignore_global files
 
-## Libs
+### Libs
 
+- [Docker](https://www.docker.com/) & [Docker-Compose](https://docs.docker.com/compose/) Lets you run Docker within Docker.
 - [NVM](https://github.com/nvm-sh/nvm) with [Node LTS](https://nodejs.dev/) installed by default. NVM is a version manager for NodeJS.
 - [Python3](https://www.python.org) Python is a programming language that lets you work quickly and integrate systems more effectively.
 
-## Essential
+### Essential
 
 - [Git](https://git-scm.com/) Git is a free and open source distributed version control system.
 - [Curl](https://curl.se/) Command line tool for transferring data with URLs.
 - [Wget](https://www.gnu.org/software/wget/) GNU Wget is a free software package for retrieving files using HTTP, HTTPS, FTP and FTPS.
 
-## Others
+### Others
 
 - [ca-certificates](https://packages.debian.org/en/sid/ca-certificates) Contains the certificate authorities shipped with Mozilla's browser to allow SSL-based applications to check for the authenticity of SSL connections.
 - [gnupg](https://packages.debian.org/en/sid/gnupg) GnuPG is GNU's tool for secure communication and data storage.
 
-# How to customize
+## How to customize
 
 Create `.devcontainer/Dockerfile` and extend this codespace :
 
