@@ -23,4 +23,5 @@ alias lt='ls --tree'
 eval $(thefuck --alias)
 
 # Starship
+source ~/.profile
 eval "$(starship init zsh)"
