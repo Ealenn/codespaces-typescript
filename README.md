@@ -74,7 +74,7 @@ In your project, create `.devcontainer/devcontainer.json` [[?]](https://aka.ms/d
   // "forwardPorts": [],
 
   // Uncomment the next line to run commands after the container is created - for example installing curl.
-  // "postCreateCommand": "npm ci",
+  // "postCreateCommand": "npm ci", // You can also use ZX script or MAKE command
 
   "mounts": [
     "source=/home/ealen/.ssh,target=/home/user/.ssh,type=bind,readonly",
@@ -89,7 +89,7 @@ An example is available [here](./example).
 
 ### Environment 
 
-Based on [Ubuntu 22.04](https://hub.docker.com/_/ubuntu)
+Based on [Ubuntu 22.04](https://hub.docker.com/_/ubuntu) __
 
 - [ZSH](https://www.zsh.org/) & [Oh-My-ZSH](https://github.com/ohmyzsh/ohmyzsh) Zsh is a shell designed for interactive use, although it is also a powerful scripting language.
 - [Starship](https://starship.rs/) The minimal, blazing-fast, and infinitely customizable prompt for any shell!
@@ -101,6 +101,7 @@ Based on [Ubuntu 22.04](https://hub.docker.com/_/ubuntu)
 - [TheFuck](https://github.com/nvbn/thefuck#installation) The Fuck is a magnificent app, that corrects errors in previous console commands.
 - [JQ](https://github.com/stedolan/jq) jq is a lightweight and flexible command-line JSON processor.
 - [gi](https://github.com/Ealenn/gi-gitignore-generator) CLI to generate .gitignore or .gitignore_global files
+- [ZX](https://github.com/google/zx) Bash is great, but when it comes to writing scripts, people usually choose a more convenient programming language.
 
 ### Libs
 

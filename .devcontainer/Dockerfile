@@ -91,7 +91,7 @@ ENV PATH $NVM_DIR/versions/node/v$NODE_VERSION/bin:$PATH
 # NPM Global Packages
 # ------------------------------
 RUN [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" \
-  && npm install --global gi-gitignore-generator \
+  && npm install --global gi-gitignore-generator zx \
   && npm cache clean --force
 
 # ------------------------------
@@ -136,6 +136,7 @@ RUN addgroup wsl \
 # User Configuration
 # ------------------------------
 COPY home/ ${HOME}/
+COPY etc /etc
 RUN chown -R ${PUID}:${PGID} $HOME
 RUN chown -R ${PUID}:${PGID} /usr/local/nvm
 
